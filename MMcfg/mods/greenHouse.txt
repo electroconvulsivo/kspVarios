@@ -1,0 +1,4 @@
+@PART[MunSeeker_Greenhouse_Mk1]:NEEDS[RemoteTech]
+{
+	@TechRequired = hydroponics
+}

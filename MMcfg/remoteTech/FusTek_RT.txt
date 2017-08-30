@@ -1,0 +1,23 @@
+@PART[FusTekResupplyModule]:FOR[RemoteTech]
+{
+	MODULE
+	{
+		name = ModuleSPU
+		IsRTCommandStation = true
+	}
+}
+@PART[FusTekKarmonyUtilModule]:FOR[RemoteTech]
+{
+	MODULE
+	{
+		name = ModuleSPU
+	}
+}
+@PART[FusTekKarmonyUtilModuleAdapter]:FOR[RemoteTech]
+{
+	MODULE
+	{
+		name = ModuleSPU
+	}
+}
+

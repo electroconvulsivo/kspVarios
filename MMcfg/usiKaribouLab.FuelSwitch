@@ -1,0 +1,59 @@
+@PART[KER_*]:FINAL
+{
+	!MODULE[USI_ModuleResourceWarehouse]{}
+	!MODULE[USI_ModuleRecycleBin]{}
+
+	!RESOURCE[Machinery]{}
+	!RESOURCE[Supplies]{}
+	!RESOURCE[Mulch]{}
+}
+
+@PART[KER_WheelBay_Short]:FINAL
+{
+
+	@MODULE[FStextureSwitch2]
+	{
+		@textureDisplayNames = LFO;Water;Chemicals;Mulch;LH2;LiqudFuel;MonoPropellant;MetallicOre;Uraninite;Substrate;Minerals;Karbonite;Commodities;MaterialKits;Metals;NuclearFuels;Polymers;Supplies;Ore;Machinery;Recyclables;SpecializedParts;Fertilizer;Hydrates;TACLS;Waste
+	}
+
+	@MODULE[FSfuelSwitch]
+	{
+		@resourceNames =LiquidFuel,Oxidizer;Water;Chemicals;Mulch;LqdHydrogen;LiquidFuel;MonoPropellant;MetallicOre;Uraninite;Substrate;Minerals;Karbonite;ExoticMinerals,RareMetals;MaterialKits;Metals;EnrichedUranium,DepletedUranium;Polymers;Supplies;Ore;Machinery;Recyclables;SpecializedParts;Fertilizer;Hydrates;Food,Water,Oxygen;Waste,WasteWater,CarbonDioxide
+		@resourceAmounts = 450,550;5000;5000;5000;5000;1000;1000;5000;5000;5000;5000;5000;2500,2500;5000;5000;2500,2500;5000;5000;1000;5000;5000;5000;5000;5000;1811,1197,183994;309,2886,301578
+		@initialResourceAmounts = 0,0;0;0;0;0;0;0;0;0;0;0;0;0,0;0;0;0,0;0;0;0;0;0;0;0;0;1811,1197,183994;0,0,0
+		@tankCost = 459;4;80000;0;183.75;4000;1200;8800;3500;1500;4000;1600;750000;10000;71200;2162500;40000;12500;20;79000;35000;160000;10000;2500;5000;5000
+	}
+
+}
+
+@PART[KER_WheelBay]:FINAL
+{
+
+	@MODULE[FStextureSwitch2]
+	{
+		@textureDisplayNames = LFO;Water;Chemicals;Mulch;LH2;LiqudFuel;MonoPropellant;MetallicOre;Uraninite;Substrate;Minerals;Karbonite;Commodities;MaterialKits;Metals;NuclearFuels;Polymers;Supplies;Ore;Machinery;Recyclables;SpecializedParts;Fertilizer;Hydrates;TACLS;Waste
+	}
+
+	@MODULE[FSfuelSwitch]
+	{
+		@resourceNames =LiquidFuel,Oxidizer;Water;Chemicals;Mulch;LqdHydrogen;LiquidFuel;MonoPropellant;MetallicOre;Uraninite;Substrate;Minerals;Karbonite;ExoticMinerals,RareMetals;MaterialKits;Metals;EnrichedUranium,DepletedUranium;Polymers;Supplies;Ore;Machinery;Recyclables;SpecializedParts;Fertilizer;Hydrates;Food,Water,Oxygen;Waste,WasteWater,CarbonDioxide
+		@resourceAmounts = 900,1100;10000;10000;10000;10000;2000;2000;10000;10000;10000;10000;10000;5000,5000;10000;10000;5000,5000;10000;10000;2000;10000;10000;10000;10000;10000;3622,2395,367978;618,5772,605136
+		@initialResourceAmounts = 0,0;0;0;0;0;0;0;0;0;0;0;0;0,0;0;0;0,0;0;0;0;0;0;0;0;0;3622,2395,367978;0,0,0
+		@tankCost = 918;8;160000;0;367.5;1600;2400;17600;7000;3000;8000;3200;1500000;20000;142400;4325000;80000;25000;40;158000;70000;320000;20000;5000;10500;9000
+	}
+
+}
+
+@PART[KER_Hub]:FINAL
+{
+
+	!MODULE[ModuleKISInventory]{}
+
+	%CrewCapacity = 4
+	INTERNAL
+	{
+		name = crewCabinInternals
+	}
+
+
+}

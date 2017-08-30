@@ -1,0 +1,21 @@
++PART[Kosmos_Parom_RCS_Tank]
+{
+	@name = Kosmos_Parom_Water_Tank
+
+	@title = Parom Water Fuel Tank
+	@manufacturer = Chiqui Astronautics
+	@description = Naturally, tugging around heavy cargo modules requires more water, so here's a strap-on tank that's designed for the job.
+	//@TechRequired = 
+
+	@tags = isru mine )mining (water resource store tks va kosmos salyut mir iss
+
+	-RESOURCE[MonoPropellant]{}
+
+	RESOURCE
+	{
+		name = Water
+		amount = 300
+		maxAmount = 300
+	}
+
+}

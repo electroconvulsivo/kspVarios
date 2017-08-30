@@ -1,0 +1,46 @@
+@PART[LargeTallAdapter]
+{
+	@mass = 0.53
+
+	RESOURCE
+	{
+	 name = LiquidFuel
+	 amount = 432
+	 maxAmount = 432
+	}
+
+	RESOURCE
+	{
+	 name = Oxidizer
+	 amount = 528
+	 maxAmount = 528
+	}
+}
+
+@PART[SmallTallAdapter]
+{
+	@mass = 0.125
+
+	RESOURCE
+	{
+	 name = LiquidFuel
+	 amount = 90
+	 maxAmount = 90
+	}
+
+	RESOURCE
+	{
+	 name = Oxidizer
+	 amount = 110
+	 maxAmount = 110
+	}
+}
+
+@PART[Soy-Juice]
+{
+	!stagingIcon = COMMAND_POD
+
+	!MODULE[ModuleEngines]{}
+	!RESOURCE[SolidFuel]{}
+	!MODULE[Landertron]{}
+}

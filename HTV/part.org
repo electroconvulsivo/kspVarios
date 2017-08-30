@@ -1,0 +1,162 @@
+PART
+{
+// --- general parameters ---
+name = HTVx
+module = CommandPod
+author = Yogui
+
+
+// --- asset parameters ---
+mesh = model.mu
+scale = 1
+rescaleFactor = 1.0
+
+
+// --- node definitions ---
+node_stack_top = 0.0, 3.2, 0.0, 0, 1, 0, 2
+node_stack_bottom = 0.0, -2.88, 0.0, 0, -1, 0, 2
+node_attach = 0.0, 0.0, 0.0, 0, 0, 1, 2
+
+
+// --- editor parameters ---
+TechRequired = composites
+entryCost = 100000
+cost = 50000
+category = Utility
+subcategory = 0
+title = HTV
+manufacturer = Lionhead Aerospace Inc.
+description = The H-II Transfert Vehicule is a cargo to resuplly the ISS station.
+
+
+// attachment rules: stack, srfAttach, allowStack, allowSrfAttach, allowCollision
+attachRules = 1,0,1,1,1
+
+
+// --- standard part parameters ---
+mass = 6.0
+dragModelType = default
+maximum_drag = 0.1
+minimum_drag = 0.2
+angularDrag = 2
+crashTolerance = 30
+maxTemp = 3000
+breakingForce = 5000
+breakingTorque = 5000
+	bulkheadProfiles = size2
+	
+	heatConductivity = 0.06 // half default
+	skinInternalConductionMult = 4.0
+	emissiveConstant = 0.8 // engine nozzles are good at radiating.
+	
+	tags = command cargo supply htv
+
+
+// --- pod/rcs parameters ---
+stagingIcon = COMMAND_POD
+CrewCapacity = 0
+vesselType = Ship
+MODULE
+{
+	name = ModuleCommand
+	minimumCrew = 0
+	
+	RESOURCE
+	{
+		name = ElectricCharge
+		rate = 0.02
+	}
+}
+
+MODULE
+{
+	name = ModuleReactionWheel
+	
+	PitchTorque = 3
+	YawTorque = 3
+	RollTorque = 3
+	
+	RESOURCE
+	{
+		name = ElectricCharge
+		rate = 0.3
+	}
+}
+MODULE
+{
+	name = ModuleSAS
+}
+
+
+// --- Tanks parameters ---
+RESOURCE
+{
+ name = ElectricCharge
+ amount = 2500
+ maxAmount = 2500
+}
+
+RESOURCE
+{
+ name = MonoPropellant
+ amount = 750
+ maxAmount = 750
+}
+
+
+// --- Engines Parameters ---
+fx_exhaustFlame_blue_small = 0.0, 0.0, 0.0, 0, 1, 0, running
+fx_exhaustLight_blue = 0.0, 0.0, 0.0, 0, 0, 1, running
+fx_smokeTrail_light = 0.0, 0.0, 0.0, 0, 1, 0, running
+fx_exhaustSparks_flameout = 0.0, 0.0, 0.0, 0, 1, 0, flameout
+
+sound_rocket_hard = running
+sound_vent_soft = disengage
+sound_explosion_low = flameout
+
+MODULE
+{
+	name = ModuleEngines
+	thrustVectorTransformName = thrustTransform
+	exhaustDamage = True
+	ignitionThreshold = 0.1
+	minThrust = 0
+	maxThrust = 66.6
+	heatProduction = 100
+	fxOffset = 0, 0, 0.1
+	PROPELLANT
+	{
+		name = MonoPropellant
+        ratio = 2.0
+		DrawGauge = True
+	}	
+	atmosphereCurve
+ 	{
+   	 key = 0 410
+  	 key = 1 280
+ 	}
+}
+
+MODULE
+{
+	name = ModuleGimbal
+	gimbalTransformName = thrustTransform
+	gim
+}
+
+
+// --- rcs module parameters ---
+MODULE
+{
+	name = ModuleRCS
+	thrusterTransformName = RcsTransform
+	thrusterPower = 3.35
+	resourceName = MonoPropellant
+	atmosphereCurve
+ 	{
+   	 key = 0 260
+  	 key = 1 100
+ 	}
+}
+
+}

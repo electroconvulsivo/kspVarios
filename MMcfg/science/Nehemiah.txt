@@ -1,0 +1,67 @@
+@EXPERIMENT_DEFINITION[NE_Test]:FINAL
+{
+        @baseValue = 300
+}
+
+@EXPERIMENT_DEFINITION[NE_FLEX]:FINAL
+{
+        @baseValue = 525
+}
+@EXPERIMENT_DEFINITION[NE_CFI]:FINAL
+{
+        @baseValue = 600
+}
+@EXPERIMENT_DEFINITION[NE_CCF]:FINAL
+{
+        @baseValue = 330
+}
+@EXPERIMENT_DEFINITION[NE_CFE]:FINAL
+{
+        @baseValue = 585
+}
+@EXPERIMENT_DEFINITION[NE_MEE1]:FINAL
+{
+        @baseValue = 375
+}
+@EXPERIMENT_DEFINITION[NE_MEE2]:FINAL
+{
+        @baseValue = 577
+}
+@EXPERIMENT_DEFINITION[NE_MIS1]:FINAL
+{
+        @baseValue = 220
+}
+@EXPERIMENT_DEFINITION[NE_MIS2]:FINAL
+{
+        @baseValue = 375
+}
+@EXPERIMENT_DEFINITION[NE_MIS3]:FINAL
+{
+        @baseValue = 675
+}
+
+@EXPERIMENT_DEFINITION[NE_CVB]:FINAL
+{
+        @baseValue = 727
+}
+@EXPERIMENT_DEFINITION[NE_PACE]:FINAL
+{
+        @baseValue = 615
+}
+//-----------------------------------
+//@EXPERIMENT_DEFINITION[NE_KEES_PPMD]:FINAL
+//{
+//        @baseValue = 27
+//}
+//@EXPERIMENT_DEFINITION[NE_KEES_OCD]:FINAL
+//{
+//        @baseValue = 45
+//}
+//@EXPERIMENT_DEFINITION[NE_KEES_POSA1]:FINAL
+//{
+//        @baseValue = 27
+//}
+//@EXPERIMENT_DEFINITION[NE_KEES_POSA2]:FINAL
+//{
+//        @baseValue = 45
+//}

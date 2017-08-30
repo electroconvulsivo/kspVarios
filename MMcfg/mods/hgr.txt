@@ -1,0 +1,63 @@
+@PART[Soy-Green]:FINAL
+{
+	@MODULE[ModuleReactionWheel]	{
+		@PitchTorque = 3
+		@YawTorque = 3
+		@RollTorque = 3
+	}
+	
+	@RESOURCE[MonoPropellant]	{
+		@amount = 20
+		@maxAmount = 20
+	}
+	
+	!MODULE[ModuleEngines]{}
+	!RESOURCE[SolidFuel]{}
+	
+	!stagingIcon = COMMAND_POD
+}
+
+
+@PART[OnionNew2]:FINAL
+{
+	!MODULE[ModuleScienceExperiment]{}
+	!MODULE[ModuleScienceContainer]{}
+	
+	RESOURCE {
+		name = ElectricCharge
+		amount = 350
+		maxAmount = 350
+	}
+}
+
+
+@PART[SoySvcMod]:FINAL
+{
+	@RESOURCE[MonoPropellant]	{
+		@amount = 20
+		@maxAmount = 20
+	}
+}
+
+
+@PART[OnionNew2]:FOR[Kerbalism]:FINAL
+{
+
+  %MODULE[Entertainment] 
+  {
+    %description = Some Orbital space.
+    %rate = 1.15
+  }
+
+  %RESOURCE[Food]
+  {
+    %amount = 150
+    %maxAmount = 150
+  }
+
+  %RESOURCE[Oxygen]
+  {
+    %amount = 50
+    %maxAmount = 50
+  }
+}

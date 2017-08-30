@@ -1,0 +1,21 @@
++PART[Kosmos_TKS_RCS_Tank]
+{
+	@name = Kosmos_TKS_Water_RadedTank
+
+	@title = Parom Water Fuel Tank & Radiator
+	@manufacturer = Chiqui Astronautics
+	@description = Naturally, tugging around heavy cargo modules requires more water, so here's a strap-on tank that's designed for the job. This version has an attached radiator panel to aid in protection and heat diffusion.
+	//@TechRequired = 
+
+	@tags = isru mine )mining (water resource store tks va kosmos salyut mir iss
+
+	-RESOURCE[MonoPropellant]{}
+
+	RESOURCE
+	{
+		name = Water
+		amount = 800
+		maxAmount = 800
+	}
+
+}

@@ -1,0 +1,294 @@
+@PART[SOYUZ_ENGINE]:FOR[Soyuz_spacecraft]:FINAL
+{
+	@RESOURCE[ElectricCharge]
+	{
+		@amount = 150
+		@maxAmount = 150
+	}
+}
+
+
+@PART[SOYUZ_PAO_PROGRESS]:FOR[Soyuz_spacecraft]:FINAL
+{
+	@RESOURCE[ElectricCharge]
+	{
+		@amount = 150
+		@maxAmount = 150
+	}
+}
+
+
+@PART[SOYUZ_orbitalSegment]:FOR[Soyuz_spacecraft]:FINAL
+{
+  MODULE
+  {
+    name = Entertainment
+    description = Comfy.
+    rate = 4.0
+  }
+}
+
+//keep fit
+@PART[SOYUZ_REENTRY_CAPSULE]:NEEDS[KeepFit]:AFTER[KeepFit]
+{
+    MODULE
+    {
+        name = KeepFitPartModule
+		strActivityLevel = CRAMPED
+    }
+}
+
+// Orbital modules are comfy
+@PART[SOYUZ_orbitalSegment]:NEEDS[KeepFit]:AFTER[KeepFit]
+{
+    MODULE
+    {
+        name = KeepFitPartModule
+		strActivityLevel = COMFY
+    }
+}
+
+
+//-- TAC Life Support resources --
+@PART[SOYUZ_orbitalSegment]:FOR[Soyuz_spacecraft]:NEEDS[KIS]
+{
+	RESOURCE
+	{
+		name = Food
+		amount = 233.5
+		maxAmount = 233.5
+	}
+	RESOURCE
+	{
+		name = Oxygen
+		amount = 23665
+		maxAmount = 23665
+	}
+	RESOURCE
+	{
+		name = Water
+		amount = 154
+		maxAmount = 154
+	}
+	RESOURCE
+	{
+		name = Waste
+		amount = 0
+		maxAmount = 64
+	}
+	RESOURCE
+	{
+		name = CarbonDioxide
+		amount = 0
+		maxAmount = 6000
+	}
+	RESOURCE
+	{
+		name = WasteWater
+		amount = 0
+		maxAmount = 40
+	}
+	
+	
+	!RESOURCE[Supplies]{}
+	!RESOURCE[Mulch]{}
+	
+}
+
+
+//-- TAC Life Support resources --
+@PART[PROGRESS]:FOR[Soyuz_spacecraft]:NEEDS[KIS]
+{
+	RESOURCE
+	{
+		name = Food
+		amount = 466.5
+		maxAmount = 466.5
+	}
+	RESOURCE
+	{
+		name = Oxygen
+		amount = 47300
+		maxAmount = 47300
+	}
+	RESOURCE
+	{
+		name = Water
+		amount = 308
+		maxAmount = 308
+	}
+	RESOURCE
+	{
+		name = Waste
+		amount = 0
+		maxAmount = 128
+	}
+	RESOURCE
+	{
+		name = CarbonDioxide
+		amount = 0
+		maxAmount = 12000
+	}
+	RESOURCE
+	{
+		name = WasteWater
+		amount = 0
+		maxAmount = 80
+	}
+	
+	
+}
+
+
+//Remote tech
+@PART[PROGRESS]:NEEDS[RemoteTech]
+{
+
+	!MODULE[ModuleDataTransmitter] {}
+	
+	@MODULE[ModuleAnimateGeneric]
+	{
+		%allowManualControl = false
+	}
+	
+	%MODULE[ModuleRTAntenna] {
+		%Mode0OmniRange =  500000
+		%Mode1OmniRange = 80000000
+		%EnergyCost = 0.5
+		
+		%DeployFxModules = 0
+		
+		%TRANSMITTER
+		{
+			%PacketInterval = 0.3
+			%PacketSize = 2
+			%PacketResourceCost = 15.0
+		}
+	}
+	
+	//%MODULE[ModuleSPUPassive] {}
+	MODULE
+	{
+		name = ModuleSPU
+	}
+
+}
+
+
+//Remote tech
+@PART[SOYUZ_orbitalSegment]:NEEDS[RemoteTech]
+{
+
+	!MODULE[ModuleDataTransmitter] {}
+	
+	@MODULE[ModuleAnimateGeneric]
+	{
+		%allowManualControl = false
+	}
+	
+	%MODULE[ModuleRTAntenna] {
+		%Mode0OmniRange =  500000
+		%Mode1OmniRange = 8000000
+		%EnergyCost = 0.5
+		
+		%DeployFxModules = 0
+		
+		%TRANSMITTER
+		{
+			%PacketInterval = 0.3
+			%PacketSize = 2
+			%PacketResourceCost = 15.0
+		}
+	}
+	
+	%MODULE[ModuleSPUPassive] {}
+
+}
+
+//realchute
+@PART[SOYUZ_PARASHUTE,SOYUZ_PARASHUTE_SPARE]:NEEDS[RealChute]:FINAL
+{
+
+	!MODULE[ModuleParachute]{}
+	!MODULE[ModuleTestSubject]{}
+	!MODULE[ModuleDragModifier]{}
+	!MODULE[ModuleDragModifier]{}
+
+	MODULE
+	{
+		name = RealChuteModule
+		caseMass = 0.08
+		timer = 0
+		mustGoDown = false
+		cutSpeed = 0.5
+		spareChutes = 5
+
+		PARACHUTE
+		{
+			material = Nylon
+			preDeployedDiameter = 0.7
+			deployedDiameter = 17
+			minIsPressure = true
+			minPressure = 0.01
+			deploymentAlt = 700
+			cutAlt = -1
+			preDeploymentSpeed = 2
+			deploymentSpeed = 6
+			preDeploymentAnimation = SEMI
+			deploymentAnimation = FULL
+			parachuteName = COMMAND_CHUTE
+			capName = PARASHUTE
+		}
+	}
+
+	MODULE
+	{
+		name = ProceduralChute
+		textureLibrary = StockReplacement
+		currentCanopies = Main chute
+	}	
+
+	EFFECTS
+	{
+		rcpredeploy
+		{
+			AUDIO
+			{
+				channel = Ship
+				clip = sound_parachute_open
+				volume = 1
+			}
+		}
+
+		rcdeploy
+		{
+			AUDIO
+			{
+				channel = Ship
+				clip = sound_parachute_single
+				volume = 1
+			}
+		}
+
+		rccut
+		{
+			AUDIO
+			{
+				channel = Ship
+				clip = RealChute/Sounds/sound_parachute_cut
+				volume = 1
+			}
+		}
+
+		rcrepack
+		{
+			AUDIO
+			{
+				channel = Ship
+				clip = RealChute/Sounds/sound_parachute_repack
+				volume = 1
+			}
+		}
+	}
+
+}

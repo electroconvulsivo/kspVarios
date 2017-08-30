@@ -1,0 +1,90 @@
+@PART[Large_Crewed_Lab]:NEEDS[RemoteTech]:FINAL
+{
+	MODULE
+	{
+		IsRTCommandStation = true
+	}
+
+	//Adds new experiment "Low Gravity Environment Experiments" to the lab
+	MODULE
+	{
+		name = ModuleScienceExperiment		
+		experimentID = mplExperiment
+		experimentActionName = Perform Low Gravity Environment Experiments
+		resetActionName = Discard Experiment
+		reviewActionName = Review Experiment Results
+		
+		useStaging = False	
+		useActionGroups = True
+		hideUIwhenUnavailable = True	
+		rerunnable = True
+		    
+		FxModules = 0
+
+		//transmits at 50% to encourage processing the experiment for 100% transmission
+		xmitDataScalar = .5
+	}
+}
+
+//Creates a new experiment called "Low Gravity Environment Experiments" which gives science comparable to a
+//gravity/seismic scan, can only be performed in space low/high, and is never biome specific.  The experiment
+//is designed to be added to the Mobile Processing Lab.  
+EXPERIMENT_DEFINITION
+{
+	id = mplExperiment
+	title = Micro-Gravity Experiment
+	baseValue = 8
+	scienceCap = 10
+	dataScale = 15
+	
+	requireAtmosphere = False
+	situationMask = 48
+	biomeMask = 0
+
+	RESULTS
+	{
+		default = The crew floats around the lab, observing the results of this most interesting, yet unnamed experiment.
+		default = The crew is floating around aimlessly, enjoying the wonder of space.  This is most definitely not what we are paying them for...
+		default = The crew jazzercises to help combat the effects of long-duration space missions.
+		default = The crew is loving the feeling of weightlessness.
+
+		KerbinInSpaceLow = The crew takes time to stop and smell the roses, observing their smell has changed significantly after being grown in the low gravity environment.
+		KerbinInSpaceLow = The crew observes a common foodborne virus, finding that it becomes significantly more virulent in low gravity.
+		KerbinInSpace = The crew engages in various experiments involving small, furry creatures.
+
+		MunInSpaceLow = We've been lied to, according to sensors there's nothing here but dust and rocks.  I was promised cheese!
+		MunInSpaceHigh = Kerbals still hate brushing their teeth, even in micro-gravity.
+
+		MinmusInSpaceLow = Consuming food is considerably more difficult in space.
+		MinmusInSpaceHigh = The crew studies the deliciousness of various minty frozen desserts...
+
+		GillyInSpace = Snacks are more appreciated in the weightlessness of space.
+		
+		MohoInSpace = The experiment seems to react violently to the micro-gravity environment.
+		
+		EveInSpace = Plants grow far quicker in space.
+		
+		DunaInSpace = In the reduced gravity, the sapling has started to grow an eye and tentacles.
+		
+		IkeInSpace = Exercise is important for the health of spacebound Kerbals.
+		
+		DresInSpace = The test subject blinks more quickly in this environment.
+		
+		JoolInSpace = The subject is mysteriously pulled to the side of the container.
+		
+		LaytheInSpace = The crew seems to do its tasks better. What causes this is unknown.
+		
+		VallInSpace = The moon's resonance with Jool is throwing off the results.
+		
+		TyloInSpace = Performing science experiments is more pleasurable in this gravitational field.
+		
+		BopInSpace = The plants in the cabin are pointing to the moon's pole.
+		
+		PolInSpace = The subject's hairs are standing up straight for some reason.
+		
+		EelooInSpace = The crew is too homesick to do any experiments, which is interesting in itself.
+
+		SunInSpace = The crew is in awe at our insignificance as Kerbin shrinks away to just another speck of dust floating through space... 
+		SunInSpaceLow = Is it hot in here?  It seems really hot in here.  Maybe we're too close to the giant ball of flaming gas?
+	}
+}

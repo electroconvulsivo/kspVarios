@@ -1,0 +1,21 @@
++PART[Kosmos_TKS_RCS_Tank_Radless]
+{
+	@name = Kosmos_TKS_Water_Tank_Radless
+
+	@title = TKS Water Fuel Tank
+	@manufacturer = Chiqui Astronautics
+	@description = Naturally, tugging around heavy cargo modules requires more water, so here's a strap-on tank that's designed for the job.
+	//@TechRequired = 
+
+	@tags = isru mine )mining (water resource store tks va kosmos salyut mir iss
+
+	-RESOURCE[MonoPropellant]{}
+
+	RESOURCE
+	{
+		name = Water
+		amount = 800
+		maxAmount = 800
+	}
+
+}

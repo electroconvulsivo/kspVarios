@@ -1,0 +1,68 @@
+INTERNAL
+{
+	name = ksocmd
+
+	MODULE
+	{
+		name = InternalSeat
+		seatTransformName = ObserverSeat1
+		portraitCameraName = cupola1cam
+		allowCrewHelmet = false
+	}
+	MODULE
+	{
+		name = InternalSeat
+		seatTransformName = ObserverSeat2
+		portraitCameraName = cupola2cam
+		allowCrewHelmet = false
+	}
+	MODULE
+	{
+		name = InternalCameraSwitch
+		colliderTransformName = triggerview
+		cameraTransformName = viewcam
+	}
+
+	MODULE
+	{
+		name = InternalCameraSwitch
+		colliderTransformName = triggerhud
+		cameraTransformName = viewhud
+	}
+
+	MODULE
+	{
+		name = InternalCameraSwitch
+		colliderTransformName = allkerbalsobs
+		cameraTransformName = modulecamobs
+	}
+
+MODULE
+{
+    name = JSIActionGroupSwitch
+    animationName = cupolalights
+    switchTransform = switchobs
+    animateExterior = true
+    perPodPersistenceName = emisobs
+    actionName = dummy
+}
+
+//MODULE
+//{
+//    name = JSIActionGroupSwitch
+//    animationName = cameramove
+//   switchTransform = triggermove
+//    actionName = dummy
+//}
+
+
+MODULE
+{
+    name = JSIActionGroupSwitch
+    animationName = deckcams
+    switchTransform = deckswitch
+    animateExterior = false
+    perPodPersistenceName = deckstatus
+    actionName = dummy
+}
+

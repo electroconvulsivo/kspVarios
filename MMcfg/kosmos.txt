@@ -1,0 +1,940 @@
+@PART[Kosmos_Berthing_Node_Hexaway]
+{
+	%TechRequired = advMetalworks
+}
+
+@PART[Kosmos_Salyut_Solar_Array2]
+{
+	%mass = 0.1
+}
+
+@PART[Kosmos_Salyut_Solar_Array]
+{
+	%mass = 0.20
+}
+
+@PART[Kosmos_TKS_Solar_Array]
+{
+	%mass = 0.25
+}
+
+@PART[Kosmos_Pravilo_ASAS]:NEEDS[MechJeb2]
+{
+	MODULE
+	{
+		name = MechJebCore
+	}
+	@cost = 850
+}
+
+@PART[Kosmos_Pravilo_Control_Collar]
+{
+	!MODULE[ModuleReactionWheel]{}
+}
+
+@PART[Kosmos_Pravilo_Control_Collar]:NEEDS[MechJeb2]
+{
+	MODULE
+	{
+		name = MechJebCore
+	}
+}
+
+@PART[Kosmos_Pravilo_Control_Collar]:NEEDS[RemoteTech]
+{
+	MODULE
+	{
+		name = ModuleSPU
+	}
+}
+
+@PART[Kosmos_VA_RRV_ASAS]:NEEDS[MechJeb2]
+{
+	MODULE
+	{
+		name = MechJebCore
+	}
+}
+
+@PART[Kosmos_VA_RRV_NavComStab]:NEEDS[MechJeb2]
+{
+	MODULE
+	{
+		name = MechJebCore
+	}
+
+	MODULE
+	{
+		name = ModuleCommand
+		minimumCrew = 0	
+
+		RESOURCE
+		{
+			name = ElectricCharge
+			rate = 0.01
+		}
+
+	}
+
+	MODULE
+	{
+		name = ModuleSPU
+	}
+
+	RESOURCE{
+		name = ElectricCharge
+
+		amount = 250
+		maxAmount = 250
+	}
+
+	RESOURCE
+	{
+		name = MonoPropellant
+
+		amount = 20
+		maxAmount = 20
+	}
+
+	@MODULE[ModuleReactionWheel]
+	{
+		@PitchTorque = 0.75
+		@YawTorque = 0.75
+		@RollTorque = 0.75
+	}
+}
+
+@PART[Kosmos_VA_RRV_NavComStab]:NEEDS[RemoteTech] //exp-vr-2t
+{
+	%TechRequired = specializedElectrics
+	
+	!MODULE[ModuleDataTransmitter] {}
+	
+	%MODULE[ModuleAnimateGeneric]
+	{
+		%allowManualControl = true
+	}
+	
+	%MODULE[*]:HAS[#name[ModuleRTAntenna]]
+	{
+		%name = ModuleRTAntenna
+		%Mode0OmniRange = 150000
+        %Mode1OmniRange = 50000000
+		%MaxQ = 6000
+		%EnergyCost = .25
+		
+		%DeployFxModules = 0
+		
+		%TRANSMITTER
+		{
+			%PacketInterval = 0.3
+			%PacketSize = 2
+			%PacketResourceCost = 15.0
+		}
+	}
+	
+	%MODULE[*]:HAS[#name[ModuleSPUPassive]]
+	{
+		%name = ModuleSPUPassive
+	}
+}
+
+@PART[Kosmos_TKS_2-1_Flared_Taper]:NEEDS[MechJeb2]
+{
+	@RESOURCE[ElectricCharge] = 750
+
+	RESOURCE
+	{
+		name = MonoPropellant
+
+		amount = 120
+		maxAmount = 120
+	}
+
+	@MODULE[ModuleReactionWheel]{
+		@PitchTorque = 25
+		@YawTorque = 25
+		@RollTorque = 25
+	}
+
+	@CrewCapacity = 2
+
+	%MODULE[ModuleSPU] {
+		%IsRTCommandStation = true
+		%RTCommandMinCrew = 5
+	}
+	
+	MODULE
+	{
+		name = MechJebCore
+	}
+}
+
+@PART[Kosmos_TKS_2-1_Flared_Taper]:NEEDS[TacLifeSupport]
+{
+    MODULE
+    {
+        name = LifeSupportModule
+    }
+    RESOURCE
+    {
+        name = Food
+        amount = 226.3
+        maxAmount = 226.3
+    }
+    RESOURCE
+    {
+        name = Water
+        amount = 149.5
+        maxAmount = 149.5
+    }
+    RESOURCE
+    {
+        name = Oxygen
+        amount = 22934.2
+        maxAmount = 22934.2
+    }
+    RESOURCE
+    {
+        name = Waste
+        amount = 0
+        maxAmount = 39.5
+    }
+    RESOURCE
+    {
+        name = WasteWater
+        amount = 0
+        maxAmount = 363
+    }
+    RESOURCE
+    {
+        name = CarbonDioxide
+        amount = 0
+        maxAmount = 37696.4
+    }
+}
+
+@PART[Kosmos_VA_RRV_Capsule]:NEEDS[MechJeb2]
+{
+	MODULE
+	{
+		name = MechJebCore
+	}
+}
+
+@PART[Kosmos_VA_RRV_Capsule]:NEEDS[DeadlyReentry]
+{	
+	@maxTemp = 1800 // 1700
+	MODULE
+	{
+		name = ModuleHeatShield
+		direction = 0, -1, 0 // bottom of pod
+		reflective = 0.05 // 5% of heat is ignored at correct angle
+		ablative = AblativeShielding
+		conductivity = 0.01
+		loss
+		{ // loss is based on the shockwave temperature (also based on density)
+			key = 650 0 0 0 // start ablating at 650 degrees C
+			key = 1000 320 0 0 // peak ablation at 1000 degrees C
+			key = 3000 400 0 0 // max ablation at 3000 degrees C
+		}
+		dissipation
+		{ // dissipation is based on the part's current temperature
+				key = 300 0 0 0 // begin dissipating at 300 degrees C
+				key = 500 90 0 0 // maximum dissipation at 500 degrees C
+		}
+	}
+	RESOURCE
+	{
+		name = AblativeShielding
+		amount = 1000
+		maxAmount = 1000
+	}
+}
+
+//******************************************************************************
+@PART[Kosmos_Salyut_1.5-1_Taper]:NEEDS[MechJeb2]
+{
+	@vesselType = Station
+	@CrewCapacity = 0
+	@TechRequired = generalConstruction
+	
+	!MODULE[CrewManifestModule]{}
+	
+	RESOURCE
+	{
+		name = ElectricCharge
+
+		amount = 250
+		maxAmount = 250
+	}
+	RESOURCE
+	{
+		name = MonoPropellant
+
+		amount = 150
+		maxAmount = 150
+	}
+	
+	MODULE
+	{
+		name = ModuleCommand
+		minimumCrew = 0	
+
+		RESOURCE
+		{
+			name = ElectricCharge
+			rate = 0.01
+		}
+
+	}
+	MODULE
+	{
+		name = ModuleSPU
+	}
+	
+	MODULE
+	{
+		name = MechJebCore
+	}
+	
+}
+
+@PART[Kosmos_Salyut_2-1.5_Taper]:NEEDS[MechJeb2]
+{
+	@vesselType = Station
+	@CrewCapacity = 0
+	@TechRequired = generalConstruction
+	
+	!MODULE[CrewManifestModule]{}
+	
+	@RESOURCE[ElectricCharge]{
+		@amount = 250
+		@maxAmount = 250
+	}
+	RESOURCE
+	{
+		name = MonoPropellant
+
+		amount = 60
+		maxAmount = 60
+	}
+	
+	MODULE
+	{
+		name = ModuleCommand
+		minimumCrew = 0	
+
+		RESOURCE
+		{
+			name = ElectricCharge
+			rate = 0.01
+		}
+
+	}
+	MODULE
+	{
+		name = ModuleSPU
+	}
+	
+	MODULE
+	{
+		name = MechJebCore
+	}
+	
+}
+
+@PART[Kosmos_Salyut_3-2_Taper]:NEEDS[MechJeb2]
+{
+
+	@vesselType = Station
+	@CrewCapacity = 0
+	//@TechRequired = generalConstruction
+	
+	!MODULE[CrewManifestModule]{}
+	
+	RESOURCE
+	{
+		name = ElectricCharge
+
+		amount = 750
+		maxAmount = 750
+	}
+	RESOURCE
+	{
+		name = MonoPropellant
+
+		amount = 750
+		maxAmount = 750
+	}
+	
+	MODULE
+	{
+		name = ModuleCommand
+		minimumCrew = 0	
+
+		RESOURCE
+		{
+			name = ElectricCharge
+			rate = 0.01
+		}
+
+	}
+	MODULE
+	{
+		name = ModuleSPU
+	}
+	
+	MODULE
+	{
+		name = MechJebCore
+	}
+
+}
+
+//-- * --
+@PART[Kosmos_Salyut_body_1.5]
+{
+
+	@category = Utility
+	@vesselType = Station
+	@TechRequired = specializedConstruction
+	@cost = 5000
+	@CrewCapacity = 1
+
+	!MODULE[CrewManifestModule]{}
+	
+	RESOURCE{
+		name = ElectricCharge
+
+		amount = 700
+		maxAmount = 700
+	}
+
+	MODULE
+	{
+		name = ModuleReactionWheel
+	
+		PitchTorque = 30
+		YawTorque = 30
+		RollTorque = 30
+	
+		RESOURCE
+		{
+			name = ElectricCharge
+			rate = 0.75
+		}
+	}
+
+}
+
+@PART[Kosmos_Salyut_body_1.5]:NEEDS[TacLifeSupport]
+{
+    MODULE
+    {
+        name = LifeSupportModule
+    }
+    RESOURCE
+    {
+        name = Food
+        amount = 452.3
+        maxAmount = 452.3
+    }
+    RESOURCE
+    {
+        name = Water
+        amount = 300.5
+        maxAmount = 300.5
+    }
+    RESOURCE
+    {
+        name = Oxygen
+        amount = 45868.2
+        maxAmount = 45868.2
+    }
+    RESOURCE
+    {
+        name = Waste
+        amount = 0
+        maxAmount = 80.5
+    }
+    RESOURCE
+    {
+        name = WasteWater
+        amount = 0
+        maxAmount = 726
+    }
+    RESOURCE
+    {
+        name = CarbonDioxide
+        amount = 0
+        maxAmount = 75392.4
+    }
+}
+
+@PART[Kosmos_Salyut_body_1.5]:NEEDS[KeepFit]:AFTER[KeepFit]
+{
+    MODULE
+    {
+        name = KeepFitPartModule
+		strActivityLevel = CRAMPED
+    }
+}
+
+@PART[Kosmos_Salyut_body_1.5]:NEEDS[KIS]:AFTER[KIS]
+{
+
+  MODULE
+  {
+    name = ModuleKISInventory
+    maxVolume = 1250
+    externalAccess = false
+    internalAccess = true
+    slotsX = 2
+    slotsY = 2
+    slotSize = 50
+    itemIconResolution = 128
+    selfIconResolution = 128
+    openSndPath = KIS/Sounds/containerOpen
+    closeSndPath = KIS/Sounds/containerClose
+    defaultMoveSndPath = KIS/Sounds/itemMove
+  }
+
+}
+
+@PART[Kosmos_Salyut_body_2]
+{
+
+	@category = Utility
+	@vesselType = Station
+	@TechRequired = specializedConstruction
+	@cost = 12500
+	@CrewCapacity = 2
+
+	!MODULE[CrewManifestModule]{}
+	
+	RESOURCE{
+		name = ElectricCharge
+
+		amount = 1400
+		maxAmount = 1400
+	}
+
+	MODULE
+	{
+		name = ModuleReactionWheel
+	
+		PitchTorque = 30
+		YawTorque = 30
+		RollTorque = 30
+	
+		RESOURCE
+		{
+			name = ElectricCharge
+			rate = 0.75
+		}
+	}
+
+}
+@PART[Kosmos_Salyut_body_2]:NEEDS[TacLifeSupport]
+{
+    MODULE
+    {
+        name = LifeSupportModule
+    }	
+	RESOURCE
+	{
+		name = Food
+		amount = 1038.0
+		maxAmount = 1038.0
+	}
+	RESOURCE
+	{
+		name = Water
+		amount = 686.3
+		maxAmount = 686.3
+	}
+	RESOURCE
+	{
+		name = Oxygen
+		amount = 105113.36
+		maxAmount = 105113.36
+	}
+	RESOURCE
+	{
+		name = CarbonDioxide
+		amount = 0
+		maxAmount = 56400
+	}
+	RESOURCE
+	{
+		name = Waste
+		amount = 0
+		maxAmount = 60
+	}
+	RESOURCE
+	{
+		name = WasteWater
+		amount = 0
+		maxAmount = 540
+	}
+}
+
+//keep fit
+@PART[Kosmos_Salyut_body_2]:NEEDS[KeepFit]:AFTER[KeepFit]
+{
+    MODULE
+    {
+        name = KeepFitPartModule
+		strActivityLevel = CRAMPED
+    }
+}
+
+@PART[Kosmos_Salyut_body_2]:NEEDS[KIS]:AFTER[KIS]
+{
+
+  MODULE
+  {
+    name = ModuleKISInventory
+    maxVolume = 2500
+    externalAccess = false
+    internalAccess = true
+    slotsX = 4
+    slotsY = 4
+    slotSize = 50
+    itemIconResolution = 128
+    selfIconResolution = 128
+    openSndPath = KIS/Sounds/containerOpen
+    closeSndPath = KIS/Sounds/containerClose
+    defaultMoveSndPath = KIS/Sounds/itemMove
+  }
+
+}
+
+@PART[Kosmos_Salyut_body_3]
+{
+
+	@category = Utility
+	@vesselType = Station
+	//@TechRequired = specializedConstruction
+	@cost = 45000
+	@CrewCapacity = 4
+	@mass = 10
+	
+
+	!MODULE[CrewManifestModule]{}
+	
+	RESOURCE{
+		name = ElectricCharge
+
+		amount = 3000
+		maxAmount = 3000
+	}
+
+	MODULE
+	{
+		name = ModuleReactionWheel
+	
+		PitchTorque = 30
+		YawTorque = 30
+		RollTorque = 30
+	
+		RESOURCE
+		{
+			name = ElectricCharge
+			rate = 0.75
+		}
+	}
+
+}
+@PART[Kosmos_Salyut_body_3]:NEEDS[TacLifeSupport]
+{
+    MODULE
+    {
+        name = LifeSupportModule
+    }	
+	RESOURCE
+	{
+		name = Food
+		amount = 2176.0
+		maxAmount = 2176.0
+	}
+	RESOURCE
+	{
+		name = Water
+		amount = 1372.3
+		maxAmount = 1372.3
+	}
+	RESOURCE
+	{
+		name = Oxygen
+		amount = 210224.36
+		maxAmount = 210224.36
+	}
+	RESOURCE
+	{
+		name = CarbonDioxide
+		amount = 0
+		maxAmount = 112800
+	}
+	RESOURCE
+	{
+		name = Waste
+		amount = 0
+		maxAmount = 120
+	}
+	RESOURCE
+	{
+		name = WasteWater
+		amount = 0
+		maxAmount = 1080
+	}
+	
+	//--
+	MODULE
+	{
+		name = TacGenericConverter
+		converterName = Water Purifier
+
+		conversionRate = 8.16
+
+		inputResources = WasteWater, 0.000014247685185, ElectricCharge, 0.007123842592593
+		outputResources = Water, 0.000012822916667, false, Waste, 0.000001994675926, true
+	}
+
+	MODULE
+	{
+		name = TacGenericConverter
+		converterName = Carbon Extractor
+
+		conversionRate = 8.16
+
+		inputResources = CarbonDioxide, 0.001703210064733, ElectricCharge, 0.039783051310155
+		outputResources = Oxygen, 0.001713537562385, false, Waste, 0.000001209166498, true
+	}
+}
+
+//keep fit
+@PART[Kosmos_Salyut_body_3]:NEEDS[KeepFit]:AFTER[KeepFit]
+{
+    MODULE
+    {
+        name = KeepFitPartModule
+		strActivityLevel = CRAMPED
+    }
+}
+
+@PART[Kosmos_Salyut_body_3]:NEEDS[KIS]:AFTER[KIS]
+{
+
+  MODULE
+  {
+    name = ModuleKISInventory
+    maxVolume = 5000
+    externalAccess = false
+    internalAccess = true
+    slotsX = 8
+    slotsY = 8
+    slotSize = 50
+    itemIconResolution = 128
+    selfIconResolution = 128
+    openSndPath = KIS/Sounds/containerOpen
+    closeSndPath = KIS/Sounds/containerClose
+    defaultMoveSndPath = KIS/Sounds/itemMove
+  }
+
+}
+
+//-
+@PART[Kosmos_TKS_body_2]
+{
+	@category = Utility
+	@vesselType = Station
+	@TechRequired = advExploration
+	@CrewCapacity = 2
+
+	MODULE
+	{
+		name = ModuleReactionWheel
+	
+		PitchTorque = 30
+		YawTorque = 30
+		RollTorque = 30
+	
+		RESOURCE
+		{
+			name = ElectricCharge
+			rate = 0.75
+		}
+	}
+	
+	!MODULE[CrewManifestModule]{}
+}
+
+@PART[Kosmos_TKS_body_2]:NEEDS[TacLifeSupport]
+{
+	
+    MODULE
+    {
+        name = LifeSupportModule
+    }	
+	RESOURCE
+	{
+		name = Food
+		amount = 1038.0
+		maxAmount = 1038.0
+	}
+	RESOURCE
+	{
+		name = Water
+		amount = 686.3
+		maxAmount = 686.3
+	}
+	RESOURCE
+	{
+		name = Oxygen
+		amount = 105113.36
+		maxAmount = 105113.36
+	}
+	RESOURCE
+	{
+		name = CarbonDioxide
+		amount = 0
+		maxAmount = 56400
+	}
+	RESOURCE
+	{
+		name = Waste
+		amount = 0
+		maxAmount = 60
+	}
+	RESOURCE
+	{
+		name = WasteWater
+		amount = 0
+		maxAmount = 540
+	}
+
+}
+
+//keep fit
+@PART[Kosmos_TKS_body_2]:NEEDS[KeepFit]:AFTER[KeepFit]
+{
+    MODULE
+    {
+        name = KeepFitPartModule
+		strActivityLevel = CRAMPED
+    }
+}
+
+//------------------------------------------------------------------------------
+
+
+
+
+
+
+//******************************************************************************************
+//				STATION SCIENCE
+@PART[Kosmos_Salyut_body_2]:NEEDS[StationScience]
+{
+	@TechRequired = scienceTech
+	@entryCost = 10000
+	@cost = 6000
+	@category = Science
+	@vesselType = Station
+	@mass = 7.5
+	@CrewCapacity = 3
+	
+	!MODULE[ModuleSAS]{}
+	!MODULE[CrewManifestModule]{}
+	
+	MODULE
+	{
+		name = ResearchFacility
+		eurekasPerHour = 1.0
+		minimumCrew = 3
+	}
+}
+
+//--
+@PART[Kosmos_Salyut_3-2_Taper]:NEEDS[StationScience]
+{
+	@vesselType = Station
+	@CrewCapacity = 0
+	@TechRequired = advConstruction
+	!MODULE[CrewManifestModule]{}
+	
+	RESOURCE
+	{
+		name = Kibbal
+		amount = 150
+		maxAmount = 150
+	}
+}
+
+@PART[Kosmos_Salyut_body_3]:NEEDS[StationScience]
+{
+	@category = Science
+	@vesselType = Station
+	@mass = 10
+	@TechRequired = spaceExploration
+	@entryCost = 12000
+	@cost = 6950
+	
+	!MODULE[ModuleReactionWheel]{}
+	!MODULE[CrewManifestModule]{}
+
+	RESOURCE
+	{
+		name = Kibbal
+		amount = 50
+		maxAmount = 50
+	}
+	MODULE
+	{
+		name = ResearchFacility
+		minimumCrew = 1
+		sciPerDay = 1.0
+		kibbalPerDay = 2.0
+		bioproductsPerHour = 1.0
+		kibbalPerBioproduct = 1.0
+	}
+	MODULE
+	{
+		name = ModuleScienceContainer
+		reviewActionName = Review Stored Data
+		storeActionName = Store Experiments
+		evaOnlyStorage = True
+		storageRange = 2.0
+	}
+}
+//--------
+
+
+@PART[Kosmos_Parom_RCS_Tank]
+{
+	@RESOURCE[MonoPropellant]
+	{
+		@amount = 225
+		@maxAmount = 225
+	}
+}
+
+@PART[Kosmos_TKS_RCS_Tank]
+{
+	@RESOURCE[MonoPropellant]
+	{
+		@amount = 500
+		@maxAmount = 500
+	}
+}
+
+@PART[Kosmos_TKS_RCS_Tank_Radless]
+{
+	@RESOURCE[MonoPropellant]
+	{
+		@amount = 250
+		@maxAmount = 250
+	}
+}

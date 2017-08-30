@@ -1,0 +1,307 @@
+@PART[*]:HAS[@MODULE[RasterPropMonitorComputer]]:Final
+{ 
+	!MODULE[RasterPropMonitorComputer]{}
+}
+
+@PART[KSO_SST]
+{
+	!INTERNAL[ksotug]{}
+
+	!MODULE[ModuleScienceExperiment]{}
+	!MODULE[ModuleScienceContainer]{}
+	!MODULE[FStextureSwitch2]{}
+}
+
+@PART[sspanelslargekso]:NEEDS[CommunityTechTree]
+{
+	@TechRequired = advPVMaterials
+	@mass = 0.3
+}
+
+@PART[KSO_KerbaLab]:NEEDS[KIS]
+{
+	//!internal
+	@mass = 1.1
+	@TechRequired = largeVolumeContainment
+	@entryCost = 30000
+	@cost = 7500
+
+	@category = Utility
+	@vesselType = Station
+	@CrewCapacity = 0
+	
+	!MODULE[ModuleSAS]{}
+	!MODULE[ModuleScienceExperiment]{}
+	!MODULE[ModuleScienceContainer]{}
+	!MODULE[ModuleScienceLab]{}
+
+	@MODULE[ModuleReactionWheel]
+	{
+		@PitchTorque = 0.5
+		@YawTorque = 0.5
+		@RollTorque = 0.5
+	}
+
+	MODULE
+	{
+		name = ModuleKISInventory
+		maxVolume = 17500
+		externalAccess = true
+		internalAccess = true
+		slotsX = 8
+		slotsY = 5
+		slotSize = 50
+		itemIconResolution = 128
+		selfIconResolution = 128
+		openSndPath = KIS/Sounds/containerOpen
+		closeSndPath = KIS/Sounds/containerClose
+		defaultMoveSndPath = KIS/Sounds/itemMove
+	}
+}
+
+@PART[KSO_Hydroponics]
+{
+	//!internal
+	@vesselType = Station
+	!MODULE[ModuleScienceExperiment]{}
+	!MODULE[ModuleSAS]{}
+
+	@MODULE[ModuleReactionWheel]
+	{
+		@PitchTorque = 0.5
+		@YawTorque = 0.5
+		@RollTorque = 0.5
+	}
+
+	@TechRequired = shortTermHabitation
+	@mass = 6
+
+	MODULE{
+		name = TacGenericConverter
+		converterName = Greenhouse
+		conversionRate = 3
+
+		inputResources = CarbonDioxide, 0.003500367198368, WasteWater, 0.000025418346862, Waste, 0.000004610769896, ElectricCharge, 0.45
+		outputResources = Oxygen, 0.00015, false, Water, 0.0000129, false, Food, 0.00000786, false
+	}
+	
+	RESOURCE{
+		name = Food
+		amount = 0
+		maxAmount = 10
+	}
+	RESOURCE{
+		name = Water
+		amount = 0
+		maxAmount = 10
+	}
+	RESOURCE{
+		name = Oxygen
+		amount = 0
+		maxAmount = 2000
+	}
+	RESOURCE{
+		name = Waste
+		amount = 1.25
+		maxAmount = 2.5
+	}
+	RESOURCE{
+		name = CarbonDioxide
+		amount = 400
+		maxAmount = 1000
+	}
+	RESOURCE{
+		name = WasteWater
+		amount = 1.25
+		maxAmount = 2.5
+	}
+}
+
+@PART[KSO_Habitat]
+{
+	//!internal
+	@mass = 2.5
+	@vesselType = Station
+	@CrewCapacity = 4
+	@TechRequired = spaceExploration
+
+	@MODULE[ModuleReactionWheel]
+	{
+		@PitchTorque = 0.5
+		@YawTorque = 0.5
+		@RollTorque = 0.5
+	}
+	!MODULE[ModuleScienceExperiment]{}
+	!MODULE[ModuleSAS]{}
+
+	MODULE
+	{
+		name = ModuleCommand
+		minimumCrew = 1
+	
+		RESOURCE
+		{
+			name = ElectricCharge
+			rate = 0.05
+		}
+	}
+
+    MODULE
+    {
+        name = LifeSupportModule
+    }
+    RESOURCE
+    {
+        name = Food
+        amount = 6.600
+        maxAmount = 6.600
+    }
+    RESOURCE
+    {
+        name = Water
+        amount = 4.350
+        maxAmount = 4.350
+    }
+    RESOURCE
+    {
+        name = Oxygen
+        amount = 666.3
+        maxAmount = 666.3
+    }
+    RESOURCE
+    {
+        name = Waste
+        amount = 0
+        maxAmount = 0.4 
+    }
+    RESOURCE
+    {
+        name = WasteWater
+        amount = 0
+        maxAmount = 3.7
+    }
+    RESOURCE
+    {
+        name = CarbonDioxide
+        amount = 0
+        maxAmount = 383.5
+    }
+}
+
+@PART[KSO_DockingModule]
+{
+	//!internal no tiene
+	@vesselType = Station
+	@TechRequired = shortTermHabitation
+
+	@MODULE[ModuleReactionWheel]
+	{
+		@PitchTorque = 0.5
+		@YawTorque = 0.5
+		@RollTorque = 0.5
+	}
+	!MODULE[ModuleSAS]{}
+}
+	
+@PART[KSO_Observation]
+{
+	!INTERNAL[ksocmd]{}
+	@vesselType = Station
+	@TechRequired = specializedConstruction
+
+	@MODULE[ModuleReactionWheel]
+	{
+		@PitchTorque = 0.5
+		@YawTorque = 0.5
+		@RollTorque = 0.5
+	}
+	!MODULE[ModuleCommand]{}
+	!MODULE[ModuleSAS]{}
+	!MODULE[ModuleScienceExperiment]{}
+}
+
+@PART[ssauxfuelkso]
+{
+	@attachRules = 1,0,1,1,0
+	@vesselType = Station
+	@category = Pods
+	@TechRequired = specializedConstruction
+
+	!RESOURCE[LiquidFuel]{}
+	!RESOURCE[Oxidizer]{}
+
+	@MODULE[ModuleReactionWheel]
+	{
+		@PitchTorque = 5
+		@YawTorque = 5
+		@RollTorque = 5
+	}
+
+	MODULE
+	{
+		name = ModuleSPU
+	}
+	
+	MODULE
+	{
+		name = MechJebCore
+	}
+}
+
+@PART[sspowerkso]
+{
+	@mass = 7.5
+	@vesselType = Station
+	@category = Pods
+	@TechRequired = shortTermHabitation
+
+	!RESOURCE[LiquidFuel]{}
+	!RESOURCE[Oxidizer]{}
+
+	@MODULE[ModuleReactionWheel]
+	{
+		@PitchTorque = 10
+		@YawTorque = 10
+		@RollTorque = 10
+	}
+
+	MODULE
+	{
+		name = ModuleSPU
+	}
+	
+	MODULE
+	{
+		name = MechJebCore
+	}
+
+	MODULE
+	{
+		name = TacGenericConverter
+		converterName = CO2 Extractor
+
+		conversionRate = 9.18
+		inputResources = CarbonDioxide, 0.001703210064733, ElectricCharge, 0.039783051310155
+		outputResources = Oxygen, 0.001713537562385, false, Waste, 0.000001209166498, true
+	}
+	RESOURCE{
+		name = CarbonDioxide
+		amount = 0
+		maxAmount = 676
+	}
+
+	MODULE
+	{
+		name = TacGenericConverter
+		converterName = H2O Purifier
+
+		conversionRate = 9.18
+		inputResources = WasteWater, 0.000014247685185, ElectricCharge, 0.007123842592593
+		outputResources = Water, 0.000012822916667, false, Waste, 0.000001994675926, true
+	}
+	RESOURCE{
+		name = WasteWater
+		amount = 0
+		maxAmount = 6
+	}
+}

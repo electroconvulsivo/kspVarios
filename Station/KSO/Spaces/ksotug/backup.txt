@@ -1,0 +1,155 @@
+INTERNAL
+{
+	name = ksotug
+	MODULE
+	{
+		name = InternalSeat
+		seatTransformName = SSTPilot
+		portraitCameraName = tugdriver
+		allowCrewHelmet = false
+	}
+MODEL
+{
+   model = VARIOS/Station/KSO/Spaces/ksotug/internal
+   position = 0.0, 0.0, 0.0
+   scale = 1.0, 1.0, 1.0
+   rotation = 0, 0, 0
+   //parent = anotherModelTransform
+   texture = SST_Stick_Petals, VARIOS/Station/KSO/Spaces/internalstation/SST_Stick_Petals
+   texture = SST_Stick_Petals_emis, VARIOS/Station/KSO/Spaces/internalstation/SST_Stick_Petals_emis
+   texture = SST_Stick_Petals_norm_NRM, VARIOS/Station/KSO/Spaces/internalstation/SST_Stick_Petals
+   texture = analog_emissive, VARIOS/Station/KSO/Spaces/ksotug/analog_emissive
+   texture = analog_guages_norm_NRM, VARIOS/Station/KSO/Spaces/ksotug/analog_guages_norm_NRM
+   texture = KSOS_ARM, VARIOS/Station/KSO/Spaces/ksotug/KSOS_ARM
+   texture = KSOS_ARM_emis, VARIOS/Station/KSO/Spaces/ksotug/KSOS_ARM_emis
+   texture = KSOS_ARM_norm_NRM, VARIOS/Station/KSO/Spaces/ksotug/KSOS_ARM_norm_NRM
+   texture = RCS_panel, VARIOS/Station/KSO/Spaces/ksotug/RCS_panel
+   texture = RCS_panel_emis, VARIOS/Station/KSO/Spaces/ksotug/RCS_panel_emis
+   texture = RCS_panel_norm_NRM, VARIOS/Station/KSO/Spaces/ksotug/RCS_norm_NRM
+   texture = analog_guages, VARIOS/Station/KSO/Spaces/ksotug/analog_guages
+}
+
+MODULE
+{
+    name = JSIActionGroupSwitch
+    animationName = sstcabin
+    switchTransform = sstswitch
+    animateExterior = true
+    perPodPersistenceName = sstemis
+    actionName = dummy
+}
+
+
+
+  	MODULE
+  	{
+    	name = InternalLeverThrottle
+	angleMin = 25
+	angleMax = 112
+	leverName = SST_tugThrottle
+
+  	}
+	MODULE
+	{
+		name = InternalVSI
+		indicatorName = vertical_speed_needle_sst
+		axis = 0, 1, 0
+		increments
+		{
+			inc = 0, 0
+			inc = 80, 10
+			inc = 120, 100
+			inc = 170, 1000
+		}
+	}
+
+	MODULE
+	{
+		name = InternalRadarAltitude
+		indicatorName = radar_alt_needle_sst
+		axis = 0, 1, 0
+		increments
+		{
+			inc = 0, 0
+			inc = 34, 100
+			inc = 70, 200
+			inc = 110, 300
+			inc = 145, 400
+			inc = 180, 500
+			inc = 215, 1000
+			inc = 232, 2000
+			inc = 250, 3000
+		}
+	}
+
+	MODULE
+	{
+		name = InternalAltimeterThreeHands
+		handAxis = 0, 1, 0
+		hand100Name = altimeter_needle_10s_sst
+		hand1000Name = altimeter_needle_100s_sst
+		hand10000Name = altimeter_needle_1000s_sst
+	}
+
+
+  MODULE
+  {
+    name = InternalIndicatorPanel
+    indicators
+    {
+       indicator
+       {
+          name = Panel_RCS_sst
+          colorOn = 1, 0.81, 0.31
+          colorOff = 0, 0, 0
+          value = RCS
+       }
+       indicator
+       {
+          name = Panel_SAS_sst
+          colorOn = 1, 0.81, 0.31
+          colorOff = 0, 0, 0
+          value = SAS
+       }
+       indicator
+       {
+          name = Panel_ARM_sst
+          colorOn = 1, 0.81, 0.31
+          colorOff = 0, 0, 0
+          value = Gear
+       }
+
+
+       indicator
+       {
+          name = Panel_Rot_sst
+          colorOn = 1, 0.81, 0.31
+          colorOff = 0, 0, 0
+          value = KillRot
+       }
+
+
+  }
+
+  }
+
+  MODULE
+{
+	name = FSinternalPropRotator 
+
+// allows for rotating three different objects in an engine or other part. Must be three separate objects or empties.
+
+
+	pitchObject = SST_Control_stick //rotates around the y axis
+	yawObject = SST_Control_holder //rotates around the x axis
+	//rollObject = SST_Control_stick // rotates around the z axis
+
+//0,0,0 etc can be used to add to the 0,0,0 + p,r,y rotation reset each update
+
+	pitchDefaultRotation =  0, 0, 0 
+	rollDefaultRotation =  0, 0, 180
+	yawDefaultRotation =  0, 0, 0
+	axisMultiplier = 12, 12, 12 // pitch, roll, yaw
+}
+
+}

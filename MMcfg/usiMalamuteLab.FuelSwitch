@@ -1,0 +1,58 @@
+//@PART[Malemute_RoverScienceLab]:FINAL
+//{
+//
+//	!MODULE[ModuleScienceExperiment]{}
+//	!MODULE[ModuleLifeSupport]{}
+//	!MODULE[ModuleLifeSupportRecycler]{}
+//	!MODULE[USI_ModuleFieldRepair]{}
+//	!MODULE[ModuleCommand]{}
+//
+//	!RESOURCE[ReplacementParts]{}
+//
+//}
+
+@PART[Malemute_RoverTankLong]:FINAL
+{
+	@MODULE[FStextureSwitch2]
+	{
+		
+		@textureNames = UmbraSpaceIndustries/Malemute/Assets/Malemute_01;UmbraSpaceIndustries/Malemute/Assets/Malemute_01;UmbraSpaceIndustries/Malemute/Assets/Malemute_01;UmbraSpaceIndustries/Malemute/Assets/Malemute_01;UmbraSpaceIndustries/Malemute/Assets/Malemute_01;UmbraSpaceIndustries/Malemute/Assets/Malemute_01;UmbraSpaceIndustries/Malemute/Assets/Malemute_01
+		@textureDisplayNames = LFO;LiquidFuel;MonoPropellant;Supplies;Fertilizer;TAC-LS;TAC-Waste
+		@fuelTankSetups = 0;1;2;3;4;5;6
+
+	}
+
+	@MODULE[FSfuelSwitch]
+	{
+
+		@resourceNames = LiquidFuel,Oxidizer,ElectricCharge;LiquidFuel,ElectricCharge;MonoPropellant,ElectricCharge;Supplies,Mulch,ElectricCharge;Fertilizer,ElectricCharge;Food,Water,Oxygen;Waste,WasteWater,CarbonDioxide
+		@resourceAmounts = 225,275,2000;500,2000;500,2000;4500,150,2000;4500,2000;679,449,68997;116,1082,113091
+		@initialResourceAmounts = 225,275,2000;500,2000;500,2000;4500,0,2000;4500,2000;679,449,68997;0,0,0
+		@tankCost = 3000;3000;3000;3000;3000;3000;3000
+		@tankMass = 0;0;0;0;0;0;0
+	
+	}
+}
+
+@PART[Malemute_RoverTankShort]:FINAL
+{
+	@MODULE[FStextureSwitch2]
+	{
+	
+		@textureNames = UmbraSpaceIndustries/Malemute/Assets/Malemute_01;UmbraSpaceIndustries/Malemute/Assets/Malemute_01;UmbraSpaceIndustries/Malemute/Assets/Malemute_01;UmbraSpaceIndustries/Malemute/Assets/Malemute_01;UmbraSpaceIndustries/Malemute/Assets/Malemute_01;UmbraSpaceIndustries/Malemute/Assets/Malemute_01;UmbraSpaceIndustries/Malemute/Assets/Malemute_01
+		@textureDisplayNames = LFO;LiquidFuel;MonoPropellant;Supplies;Fertilizer;TAC-LS;TAC-Waste
+		@fuelTankSetups = 0;1;2;3;4;5;6
+		
+	}
+
+	@MODULE[FSfuelSwitch]
+	{
+
+		@resourceNames = LiquidFuel,Oxidizer;LiquidFuel;MonoPropellant;Supplies,Mulch;Fertilizer;Food,Water,Oxygen;Waste,WasteWater,CarbonDioxide
+		@resourceAmounts = 90,110;200;200;500,10;500;339,224,34498;58,541,56545
+		@initialResourceAmounts = 90,110;200;200;500,0;500;339,224,34498;0,0,0
+		@tankCost = 3000;3000;3000;3000;3000;3000;3000
+		@tankMass = 0;0;0;0;0;0;0
+		
+	}
+}

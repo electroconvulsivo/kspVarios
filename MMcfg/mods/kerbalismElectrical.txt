@@ -1,0 +1,81 @@
+// the RTG is weak, but its not like you have many alternatives for long range missions
+@PART[radrx]:FOR[Kerbalism]
+{
+  @MODULE[ModuleGenerator]
+  {
+    @OUTPUT_RESOURCE[ElectricCharge]
+    {
+      @rate = 0.15
+    }
+  }
+}
+
+
+//@PART[Kosmos_Balka_PanelBlock1x]:FOR[Kerbalism]
+//{
+//	@MODULE[ModuleDeployableSolarPanel]:HAS[//chargeRate[200]]
+//	{
+//		@chargeRate = 25.0
+//	}
+//}
+
+@PART[Kosmos_Balka_PanelBlock1_Singlex]:FOR[Kerbalism]
+{
+  @MODULE[ModuleDeployableSolarPanel]
+  {
+    @chargeRate = 75.5
+  }
+}
+
+
+@PART[solarpanels-blanket02x]:FOR[Kerbalism]
+{
+
+  @MODULE[ModuleDeployableSolarPanel]
+  {
+    @chargeRate = 65.0
+  }
+}
+
+@PART[solarpanels-modern08x]:FOR[Kerbalism]
+{
+  @MODULE[ModuleDeployableSolarPanel]
+  {
+    @chargeRate = 12.0
+  }
+}
+
+@PART[solarpanels-circular01x]:FOR[Kerbalism]
+{
+  @MODULE[ModuleDeployableSolarPanel]
+  {
+    @chargeRate = 8.0
+  }
+}
+
+
+
+@PART[solarPanelsfax]:FOR[Kerbalism]
+{
+  @MODULE[ModuleDeployableSolarPanel]
+  {
+    @chargeRate = 0.45
+  }
+}
+
+@PART[solarPanelsfa2x]:FOR[Kerbalism]
+{
+  @MODULE[ModuleDeployableSolarPanel]
+  {
+    @chargeRate = 1
+  }
+}
+
+@PART[solarPanelsuncat1x]:FOR[Kerbalism]
+{
+  @MODULE[ModuleDeployableSolarPanel]
+  {
+    @chargeRate = 1
+  }
+}
+

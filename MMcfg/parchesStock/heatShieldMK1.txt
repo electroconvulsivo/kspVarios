@@ -1,0 +1,41 @@
+@PART[mk1pod]
+{
+	MODULE
+	{
+		name = ModuleAblator
+		ablativeResource = Ablator
+		lossExp = -7500
+		lossConst = 0.1
+		pyrolysisLossFactor = 6000
+		reentryConductivity = 0.01
+		ablationTempThresh = 500
+	}
+
+	RESOURCE
+	{
+		name = Ablator
+		amount = 150
+		maxAmount = 150
+	}
+}
+
+@PART[K2Pod]
+{
+	MODULE
+	{
+		name = ModuleAblator
+		ablativeResource = Ablator
+		lossExp = -7500
+		lossConst = 0.1
+		pyrolysisLossFactor = 6000
+		reentryConductivity = 0.01
+		ablationTempThresh = 500
+	}
+
+	RESOURCE
+	{
+		name = Ablator
+		amount = 150
+		maxAmount = 150
+	}
+}

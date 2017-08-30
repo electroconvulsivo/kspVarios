@@ -1,0 +1,147 @@
+@PART[adapterLargeSmallBi]
+{
+    !mesh = model.mu
+	MODEL
+	{
+		model = VanguardAstrodynamics/CustomClusters/Plates/StockAdapters/250to125bi
+		texture = decoupler_and_adaptor_cm , Squad/Parts/Engine/Size3AdvancedEngine/decoupler_and_adaptor_cm
+		texture = ksp_l_biAdapter_diff , Squad/Parts/Structural/adapterLargeSmallBi/ksp_l_biAdapter_diff
+		scale = 1, 1, 1
+	}
+	node_stack_bottom03 = 0.0, -2.6691, 0.0, 0.0, -1.0, 0.0, 1
+
+	@bulkheadProfiles = size2
+	MODULE
+	{
+		name = ModuleJettison
+		jettisonName = fairing1
+		bottomNodeName = bottom03
+		isFairing = True
+		jettisonedObjectMass = 0.1
+		jettisonForce = 0
+		jettisonDirection = 0 0 0
+	}
+
+	MODULE
+	{
+		name = ModuleJettison
+		jettisonName = fairing2
+		bottomNodeName = bottom03
+		isFairing = True
+		jettisonedObjectMass = 0.1
+		jettisonForce = 0
+		jettisonDirection = 0 0 0
+	}
+}
+
+@PART[adapterLargeSmallTri]
+{
+    !mesh = model.mu
+	MODEL
+	{
+		model = VanguardAstrodynamics/CustomClusters/Plates/StockAdapters/250to125tri
+		texture = decoupler_and_adaptor_cm , Squad/Parts/Engine/Size3AdvancedEngine/decoupler_and_adaptor_cm
+		texture = ksp_l_triAdapter_diff , Squad/Parts/Structural/adapterLargeSmallTri/ksp_l_triAdapter_diff
+		scale = 1, 1, 1
+	}
+	node_stack_bottom04 = 0.0, -2.92052, 0.0, 0.0, -1.0, 0.0, 1
+
+	@bulkheadProfiles = size2
+	MODULE
+	{
+		name = ModuleJettison
+		jettisonName = fairing1
+		bottomNodeName = bottom04
+		isFairing = True
+		jettisonedObjectMass = 0.1
+		jettisonForce = 0
+		jettisonDirection = 0 0 0
+	}
+	MODULE
+	{
+		name = ModuleJettison
+		jettisonName = fairing11
+		bottomNodeName = top
+		isFairing = True
+		jettisonedObjectMass = 0.1
+		jettisonForce = 0
+		jettisonDirection = 0 0 0
+	}
+
+	MODULE
+	{
+		name = ModuleJettison
+		jettisonName = fairing2
+		bottomNodeName = bottom04
+		isFairing = True
+		jettisonedObjectMass = 0.1
+		jettisonForce = 0
+		jettisonDirection = 0 0 0
+	}
+	MODULE
+	{
+		name = ModuleJettison
+		jettisonName = fairing22
+		bottomNodeName = top
+		isFairing = True
+		jettisonedObjectMass = 0.1
+		jettisonForce = 0
+		jettisonDirection = 0 0 0
+	}
+}
+
+@PART[adapterLargeSmallQuad]
+{
+    !mesh = model.mu
+	MODEL
+	{
+		model = VanguardAstrodynamics/CustomClusters/Plates/StockAdapters/250to125quad
+		texture = decoupler_and_adaptor_cm , Squad/Parts/Engine/Size3AdvancedEngine/decoupler_and_adaptor_cm
+		texture = ksp_l_quadAdapter_diff , Squad/Parts/Structural/adapterLargeSmallQuad/ksp_l_quadAdapter_diff
+		scale = 1, 1, 1
+	}
+	node_stack_bottom05 = 0.0, -2.92052, 0.0, 0.0, -1.0, 0.0, 1
+
+	@bulkheadProfiles = size2
+	MODULE
+	{
+		name = ModuleJettison
+		jettisonName = fairing1
+		bottomNodeName = bottom05
+		isFairing = True
+		jettisonedObjectMass = 0.1
+		jettisonForce = 0
+		jettisonDirection = 0 0 0
+	}
+	MODULE
+	{
+		name = ModuleJettison
+		jettisonName = fairing3
+		bottomNodeName = top
+		isFairing = True
+		jettisonedObjectMass = 0.1
+		jettisonForce = 1
+		jettisonDirection = -1 0 0
+	}
+
+	MODULE
+	{
+		name = ModuleJettison
+		jettisonName = fairing2
+		bottomNodeName = bottom05
+		isFairing = True
+		jettisonedObjectMass = 0.1
+		jettisonForce = 0
+		jettisonDirection = 0 0 0
+	}
+	MODULE
+	{
+		name = ModuleJettison
+		jettisonName = fairing4
+		bottomNodeName = top
+		isFairing = True
+		jettisonedObjectMass = 0.1
+		jettisonForce = 1
+		jettisonDirection = 1 0 0
+	}
+}

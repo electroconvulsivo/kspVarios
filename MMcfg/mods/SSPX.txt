@@ -1,0 +1,467 @@
+@PART[crewtube-hub-125]:NEEDS[MechJeb2]
+{
+	@TechRequired = specializedControl
+	@MODULE[ModuleReactionWheel]{
+		@PitchTorque = 5
+		@YawTorque = 5
+		@RollTorque = 5
+	}
+
+	MODULE
+	{
+		name = ModuleSPU
+	}
+	
+	MODULE
+	{
+		name = MechJebCore
+	}
+	
+}
+
+@PART[crewtube-hub-25]:NEEDS[MechJeb2]
+{
+	@mass = 7.5
+
+	MODULE
+	{
+		name = ModuleSPU
+	}
+	
+	MODULE
+	{
+		name = MechJebCore
+	}
+
+	MODULE
+	{
+		name = TacGenericConverter
+		converterName = CO2 Extractor
+
+		conversionRate = 9.18
+		inputResources = CarbonDioxide, 0.001703210064733, ElectricCharge, 0.039783051310155
+		outputResources = Oxygen, 0.001713537562385, false, Waste, 0.000001209166498, true
+	}
+	RESOURCE{
+		name = CarbonDioxide
+		amount = 0
+		maxAmount = 676
+	}
+
+	MODULE
+	{
+		name = TacGenericConverter
+		converterName = H2O Purifier
+
+		conversionRate = 9.18
+		inputResources = WasteWater, 0.000014247685185, ElectricCharge, 0.007123842592593
+		outputResources = Water, 0.000012822916667, false, Waste, 0.000001994675926, true
+	}
+	RESOURCE{
+		name = WasteWater
+		amount = 0
+		maxAmount = 6
+	}
+	
+}
+//ppd a ppt
+@PART[crewtube-125-25-1]:NEEDS[TacLifeSupport]
+{
+	@mass = 1
+
+	MODULE{
+		name = ModuleReactionWheel
+		
+		PitchTorque = 1
+		YawTorque = 1
+		RollTorque = 1
+		
+		RESOURCE
+		{
+			name = ElectricCharge
+			rate = 0.1
+		}
+	}
+
+	RESOURCE
+	{
+		name = ElectricCharge
+		amount = 200
+		maxAmount = 200
+	}
+
+    MODULE
+    {
+        name = LifeSupportModule
+    }
+    RESOURCE
+    {
+        name = Food
+        amount = 226.3
+        maxAmount = 226.3
+    }
+    RESOURCE
+    {
+        name = Water
+        amount = 149.5
+        maxAmount = 149.5
+    }
+    RESOURCE
+    {
+        name = Oxygen
+        amount = 22934.2
+        maxAmount = 22934.2
+    }
+    RESOURCE
+    {
+        name = Waste
+        amount = 0
+        maxAmount = 39.5
+    }
+    RESOURCE
+    {
+        name = WasteWater
+        amount = 0
+        maxAmount = 363
+    }
+    RESOURCE
+    {
+        name = CarbonDioxide
+        amount = 0
+        maxAmount = 37696.4
+    }
+}
+//PXL2 conical
+@PART[crewtube-25-375-1]:NEEDS[TacLifeSupport]
+{
+	@category = Structural
+	!MODULE[ModuleScienceExperiment]{}
+	!MODULE[ModuleScienceContainer]{}
+
+	MODULE{
+		name = ModuleReactionWheel
+		
+		PitchTorque = 5
+		YawTorque = 5
+		RollTorque = 5
+		
+		RESOURCE
+		{
+			name = ElectricCharge
+			rate = 0.5
+		}
+	}
+
+	RESOURCE
+	{
+		name = ElectricCharge
+		amount = 250
+		maxAmount = 250
+	}
+
+    MODULE
+    {
+        name = LifeSupportModule
+    }
+    RESOURCE
+    {
+        name = Food
+        amount = 4.388
+        maxAmount = 4.388
+    }
+    RESOURCE
+    {
+        name = Water
+        amount = 2.900
+        maxAmount = 2.900
+    }
+    RESOURCE
+    {
+        name = Oxygen
+        amount = 444.2
+        maxAmount = 444.2
+    }
+    RESOURCE
+    {
+        name = Waste
+        amount = 0
+        maxAmount = 0.4 
+    }
+    RESOURCE
+    {
+        name = WasteWater
+        amount = 0
+        maxAmount = 3.7
+    }
+    RESOURCE
+    {
+        name = CarbonDioxide
+        amount = 0
+        maxAmount = 383.5
+    }
+}
+//125 a 250 flat
+@PART[crewtube-125-25-2]
+{
+	MODULE{
+		name = ModuleReactionWheel
+		
+		PitchTorque = 1
+		YawTorque = 1
+		RollTorque = 1
+		
+		RESOURCE
+		{
+			name = ElectricCharge
+			rate = 0.1
+		}
+	}
+}
+//250 a 375 flat
+@PART[crewtube-25-375-2]
+{
+	MODULE{
+		name = ModuleReactionWheel
+		
+		PitchTorque = 3
+		YawTorque = 3
+		RollTorque = 3
+		
+		RESOURCE
+		{
+			name = ElectricCharge
+			rate = 0.3
+		}
+	}
+}
+
+@PART[crewtube-docking-25]:FINAL
+{
+	@RESOURCE[MonoPropellant] = 220
+
+	MODULE{
+		name = ModuleReactionWheel
+		
+		PitchTorque = 3
+		YawTorque = 3
+		RollTorque = 3
+		
+		RESOURCE
+		{
+			name = ElectricCharge
+			rate = 0.3
+		}
+	}
+
+	RESOURCE
+	{
+		name = ElectricCharge
+
+		amount = 100
+		maxAmount = 100
+	}
+
+	MODULE{
+		name = ModuleReactionWheel
+		
+		PitchTorque = 1
+		YawTorque = 1
+		RollTorque = 1
+		
+		RESOURCE
+		{
+			name = ElectricCharge
+			rate = 0.1
+		}
+	}
+}
+
+@PART[crewpod-observation-25]:NEEDS[TacLifeSupport]
+{
+    MODULE
+    {
+        name = LifeSupportModule
+    }
+    RESOURCE
+    {
+        name = Food
+        amount = 4.388
+        maxAmount = 4.388
+    }
+    RESOURCE
+    {
+        name = Water
+        amount = 2.900
+        maxAmount = 2.900
+    }
+    RESOURCE
+    {
+        name = Oxygen
+        amount = 444.2
+        maxAmount = 444.2
+    }
+    RESOURCE
+    {
+        name = Waste
+        amount = 0
+        maxAmount = 0.4 
+    }
+    RESOURCE
+    {
+        name = WasteWater
+        amount = 0
+        maxAmount = 3.7
+    }
+    RESOURCE
+    {
+        name = CarbonDioxide
+        amount = 0
+        maxAmount = 383.5
+    }
+}
+
+@PART[crewtube-docking-125]:FINAL
+{
+	@mass = 0.75
+
+	@RESOURCE[MonoPropellant] = 100
+
+	RESOURCE
+	{
+		name = ElectricCharge
+
+		amount = 50
+		maxAmount = 50
+	}
+}
+
+@PART[crewpod-habitation-375]
+{
+	@mass = 9.5
+
+    MODULE
+    {
+        name = LifeSupportModule
+    }
+    RESOURCE
+    {
+        name = Food
+        amount = 8.800
+        maxAmount = 8.800
+    }
+    RESOURCE
+    {
+        name = Water
+        amount = 5.800
+        maxAmount = 5.800
+    }
+    RESOURCE
+    {
+        name = Oxygen
+        amount = 888.4
+        maxAmount = 888.4
+    }
+    RESOURCE
+    {
+        name = Waste
+        amount = 0
+        maxAmount = 0.4 
+    }
+    RESOURCE
+    {
+        name = WasteWater
+        amount = 0
+        maxAmount = 3.7
+    }
+    RESOURCE
+    {
+        name = CarbonDioxide
+        amount = 0
+        maxAmount = 383.5
+    }
+
+	MODULE
+	{
+		name = TacGenericConverter
+		converterName = Carbon Extractor
+
+		conversionRate = 8.16
+
+		inputResources = CarbonDioxide, 0.001703210064733, ElectricCharge, 0.039783051310155
+		outputResources = Oxygen, 0.001713537562385, false, Waste, 0.000001209166498, true
+	}
+	MODULE
+	{
+		name = TacGenericConverter
+		converterName = H2O Purifier
+
+		conversionRate = 9.18
+		inputResources = WasteWater, 0.000014247685185, ElectricCharge, 0.007123842592593
+		outputResources = Water, 0.000012822916667, false, Waste, 0.000001994675926, true
+	}
+}
+
+@PART[crewpod-habitation-25]
+{
+	@mass = 7.5
+    MODULE
+    {
+        name = LifeSupportModule
+    }
+    RESOURCE
+    {
+        name = Food
+        amount = 6.600
+        maxAmount = 6.600
+    }
+    RESOURCE
+    {
+        name = Water
+        amount = 4.350
+        maxAmount = 4.350
+    }
+    RESOURCE
+    {
+        name = Oxygen
+        amount = 666.3
+        maxAmount = 666.3
+    }
+    RESOURCE
+    {
+        name = Waste
+        amount = 0
+        maxAmount = 0.4 
+    }
+    RESOURCE
+    {
+        name = WasteWater
+        amount = 0
+        maxAmount = 3.7
+    }
+    RESOURCE
+    {
+        name = CarbonDioxide
+        amount = 0
+        maxAmount = 383.5
+    }
+
+	MODULE
+	{
+		name = TacGenericConverter
+		converterName = Carbon Extractor
+
+		conversionRate = 8.16
+
+		inputResources = CarbonDioxide, 0.001703210064733, ElectricCharge, 0.039783051310155
+		outputResources = Oxygen, 0.001713537562385, false, Waste, 0.000001209166498, true
+	}
+	MODULE
+	{
+		name = TacGenericConverter
+		converterName = H2O Purifier
+
+		conversionRate = 9.18
+		inputResources = WasteWater, 0.000014247685185, ElectricCharge, 0.007123842592593
+		outputResources = Water, 0.000012822916667, false, Waste, 0.000001994675926, true
+	}
+}

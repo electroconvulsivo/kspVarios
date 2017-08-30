@@ -1,0 +1,10 @@
+RESOURCE_DEFINITION
+{
+	name = Hydrogen
+	density = 0.00000008990
+	unitCost = 0.000055836
+	flowMode = ALL_VESSEL
+	transfer = PUMP
+	isTweakable = true
+}
+

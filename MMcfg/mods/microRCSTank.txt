@@ -1,0 +1,17 @@
++PART[microXenon]
+{
+	@name = microRCS
+	@title = Micro Monoprop Tank
+	@manufacturer = Salme Electronics
+	@description = Tiny octagonal based Monoprop tank. Try not to loose it between the chair pillows.
+	@cost = 400
+	@TechRequired = advFuelSystems
+
+	!RESOURCE[XenonGas]{}
+	RESOURCE
+	{
+		name = MonoPropellant
+		amount = 18
+		maxAmount = 18
+	}
+}

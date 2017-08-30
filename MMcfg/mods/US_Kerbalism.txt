@@ -1,0 +1,18 @@
+@PART[US_1R360_Wedge_Water]:NEEDS[Kerbalism]:FINAL
+{
+	!RESOURCE[Water]{}
+	RESOURCE {
+		name = Food
+		amount = 500//250
+		maxAmount = 500//250
+	}
+}
+
+@PART[US_1R340_Wedge_Oxygen]:NEEDS[Kerbalism]:FINAL
+{
+	@RESOURCE[Oxygen] {
+		@amount = 50000//25000
+		@maxAmount = 50000//25000
+	}
+}
+

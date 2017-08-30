@@ -1,0 +1,90 @@
+@PART[*]:HAS[#TechRequired[basicRocketry],@MODULE[ModuleEngines]]:FINAL
+{
+	%TechRequired = start
+}
+
+@PART[*]:HAS[#TechRequired[generalRocketry]]:FINAL
+{
+	%TechRequired = basicRocketry
+}
+
+@PART[*]:HAS[#TechRequired[advRocketry]]:FINAL
+{
+	%TechRequired = generalRocketry
+}
+
+@PART[*]:HAS[#TechRequired[heavyRocketry]]:FINAL
+{
+	%TechRequired = advRocketry
+}
+
+@PART[*]:HAS[#TechRequired[heavierRocketry]]:FINAL
+{
+	%TechRequired = heavyRocketry
+}
+
+@PART[*]:HAS[#TechRequired[veryHeavyRocketry]]:FINAL
+{
+	%TechRequired = heavierRocketry
+}
+
+@PART[*]:HAS[#TechRequired[experimentalRocketry],@RESOURCE[Oxidizer]]:FINAL
+{
+	%TechRequired = veryHeavyRocketry
+}
+
+//--------------------------FUEL CONES------------------------------
+@PART[*]:HAS[#TechRequired[advConstruction],@RESOURCE[Oxidizer]]:FINAL
+{
+	%TechRequired = generalConstruction
+}
+
+@PART[*]:HAS[#TechRequired[specializedConstruction],@RESOURCE[Oxidizer]]:FINAL
+{
+	%TechRequired = advConstruction
+}
+
+//--------------------------DECOUPLERS------------------------------
+@PART[*]:HAS[#TechRequired[advConstruction],@MODULE[ModuleDecouple]]:FINAL
+{
+	%TechRequired = generalConstruction
+}
+
+@PART[*]:HAS[#TechRequired[specializedConstruction],@MODULE[ModuleDecouple]]:FINAL
+{
+	%TechRequired = advConstruction
+}
+
+//--------------------------KW-FAIRINGS------------------------------
+@PART[*]:HAS[#TechRequired[supersonicFlight],#name[KW*]]:FINAL
+{
+	%TechRequired = aerodynamicSystems
+}
+
+@PART[*]:HAS[#TechRequired[advAerodynamics],#name[KW*]]:FINAL
+{
+	%TechRequired = supersonicFlight
+}
+
+//--------------------------SPACE-Y PLATES------------------------------
+@PART[*]:HAS[#TechRequired[advConstruction],#name[SYplate2m1m*]]:FINAL
+{
+	%TechRequired = generalConstruction
+}
+
+@PART[*]:HAS[#TechRequired[nanolathing],#name[SYplate*]]:FINAL
+{
+	%TechRequired = advMetalworks
+}
+
+//--------------------------SH-ENGINES------------------------------
+@PART[KW3mengineGriffonXX,KW5mengineTitanV]:FINAL
+{
+	%TechRequired = veryHeavyRocketry
+}
+
+@PART[SYengine5mF9,SYengine5mF5]:FINAL
+{
+	%TechRequired = veryHeavyRocketry
+}
+

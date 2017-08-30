@@ -1,0 +1,12 @@
+@EXPERIMENT_DEFINITION[magnetosphericExperiment]:FINAL
+{
+	@baseValue = 22
+}
+@EXPERIMENT_DEFINITION[gasChromotographyMassSpectrometryExperiment]:FINAL
+{
+    @baseValue = 22
+}
+@EXPERIMENT_DEFINITION[magnetosphericExperiment]:FINAL
+{
+    @baseValue = 22
+}

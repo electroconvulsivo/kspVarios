@@ -1,0 +1,24 @@
+@PART[MicroSat]
+{
+	@cost = 2000
+	@RESOURCE[ElectricCharge]
+	{
+		@amount = 10
+		@maxAmount = 10
+	}
+}
+
+@PART[MICROBATSQUARE]
+{
+	@cost = 1000
+	@RESOURCE[ElectricCharge]
+	{
+		@amount = 300
+		@maxAmount = 300
+	}
+}
+
+@PART[microSolarUnshielded]
+{
+	@TechRequired = electrics
+}

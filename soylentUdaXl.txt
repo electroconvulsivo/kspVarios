@@ -1,0 +1,71 @@
++PART[FuelCellArray]
+{
+	@name = UDA_SCWOU_XXL
+	@title = UDA SuperCritical Water Oxidation Unit XXL
+	@manufacturer = UberDyne Astronautics
+	@description = Hellfire-in-a-box - water is a great solvent - even more so at high temperature, under pressure, with added oxygen. Throw in organics and out comes sterile water, CO2, nitrogen, & 'ash' (everything else). The hard part is stopping it eating it's way out of the box. This unit will convert the non gas wastes of one Kerbal over a day. Also contains <i>Soylent Starter</i>; required for healthy algal growth, one unit is good for about 3,000 Kerbal days (don't ask what's in it, if we told you we'd have to kill you).
+
+	@mass = 0.66
+
+	@TechRequired = longTermHabitation
+	// entryCost = 2250
+	// cost = 750
+
+	//-mesh = FuelCell.mu
+	@MODEL
+	{
+		@model = Squad/Parts/Resources/FuelCell/FuelCellArray
+		texture = fuellcell,UberDyneAstronautics/Soylent/SCWOU/fuellcell.s2
+	}
+
+	-MODULE[ModuleResourceConverter]{}
+	-RESOURCE[ElectricCharge]{}
+
+	MODULE:NEEDS[TACLifeSupport]
+	{
+		name = TacGenericConverter
+		converterName = HellfireInABox
+		StartActionName = Start HellfireInABox
+		StopActionName = Stop HellfireInABox	
+		tag = Life Support		
+		GeneratesHeat = false
+
+		INPUT_RESOURCE
+		{
+			ResourceName = WasteWater
+			Ratio = 0.00008548608
+		}
+		INPUT_RESOURCE
+		{
+			ResourceName = Waste
+			Ratio = 0.00000923611
+		}
+		INPUT_RESOURCE
+		{
+			ResourceName = ElectricCharge
+			Ratio = 1.8
+		}
+		OUTPUT_RESOURCE
+		{
+			ResourceName = SterileOrganicSlurry
+			Ratio = 0.00009472222
+			DumpExcess = false
+		}	
+		UseSpecialistBonus = false
+	}
+
+	RESOURCE
+	{
+		name = SterileOrganicSlurry
+		amount = 0
+		maxAmount = 35 // 0.35 about 1 day 
+	}
+	RESOURCE
+	{
+		name = SoylentStarter
+		amount = 10 // about 1500 days
+		maxAmount = 100
+	}
+
+
+}

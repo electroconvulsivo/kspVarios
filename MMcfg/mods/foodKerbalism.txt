@@ -1,0 +1,9 @@
+@PART[KKAOSS_LS*]:HAS[@RESOURCE[Food]]:AFTER[Kerbalism]:FINAL
+{
+	@maxAmount *= 16
+}
+
+@PART[KKAOSS_LS*]:HAS[@RESOURCE[Oxygen]]:AFTER[Kerbalism]:FINAL
+{
+	@maxAmount *= 3000
+}
